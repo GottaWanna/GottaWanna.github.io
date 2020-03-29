@@ -1,0 +1,109 @@
+body {
+    background-image: url(/image/aomen.png);
+    
+   
+    
+}
+
+.body-shield {
+    width: 300px;
+    height: 550px;
+    background-color: black;
+    border-radius: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.body {
+    width: 270px;
+    height: 510px;
+    background-color: white;
+    border-radius: 20px;
+    
+
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.listen-help {
+    margin-top: 10px;
+    width: 6px;
+    height: 6px;
+    background-color: black;
+    border-radius: 50%;
+    position: fixed;
+    top: 30px;
+}
+
+.listen {
+    margin-top: 50px;
+    width: 50px;
+    height: 8px;
+    background-color: black;
+    border-radius: 170px;
+    position: fixed;
+    top: 10px;
+}
+
+.camera {
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    position: relative;
+    top: 38px;
+    right: 52px;
+    border-radius: 50%;
+}
+
+.screen {
+    width: 260px;
+    height: 379px;
+    margin: 60px 5px;
+    background-color: turquoise;
+    /* display: flex; */
+    /* align-items: center;
+    justify-content: center; */
+}
+
+.screen > img {
+    width: 260px;
+    height: 379px;
+    /* max-height: 100%; */
+}
+
+.foot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-border {
+    width: 47px;
+    height: 47px;
+    background-color: black;
+    border-radius: 50%;
+    position: relative;
+    bottom: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    
+
+}

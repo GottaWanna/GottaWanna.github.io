@@ -1,0 +1,100 @@
+* {
+    border: none;
+    outline: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.bg {
+    position: absolute;
+    background-image: url(/image/chrome_browser.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+
+    filter: brightness(0.59);
+  
+}
+
+.center-box {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+}
+
+nav {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+a {
+    display: inline-block;
+    width: 70px;
+    color: rgba(255, 255, 255, 0.692);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}   
+.font-active {
+    color: #f1c40f;
+}
+
+
+a:hover{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+   
+}
+
+
+
+.input-container {
+    width: 600px;
+    height: 50px;
+    background-color: rgba(252, 252, 252, 0.5);
+    border-radius: 25px;
+    box-sizing: border-box;
+    transition: 0.3s;
+    position: relative;
+}
+
+
+
+input#text {
+    position: absolute;
+    width: 93%;
+    height: 100%;
+    background: none;
+    outline: none;
+    border: none;
+    padding:10px;
+    text-align: center;
+}
+
+input#text::-webkit-input-placeholder {
+    color: rgba(17, 2, 2, 0.182);
+}
+
+label {
+    display: none;
+}
+
+button#search {
+    color: red;
+    background: none;
+    cursor: pointer;
+    z-index: 11;
+    position: absolute;
+    right: 3px;
+    top: 6px;
+    outline: none;
+    border: none;
+}

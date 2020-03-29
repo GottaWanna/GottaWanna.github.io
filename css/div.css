@@ -1,0 +1,81 @@
+body{
+    background-image: linear-gradient(50deg,red,green,blue,pink,brown,purple,yellow);
+    background-size: 500%;
+    animation: bg-animation 25s infinite;
+}
+@keyframes bg-animation{
+    0%{
+        background-position: 0% 50%;
+
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+
+}
+.outer{
+    background-color: rgba(218, 154, 154, 0.204);
+    width: 300px;
+    height: 300px;
+    border-radius: 30px;
+    position: fixed;
+    left: 100px;
+}
+.outer:hover{
+    background-color: red;
+}
+.inner{
+    background-color: rgba(0, 0, 255, 0.297);
+    width: 300px;
+    height: 300px;
+    border-radius: 30px;
+
+    /* fixed 是相对于浏览器的位置移动 */ 
+    position: fixed;
+    right: 100px;
+
+    
+    /* absolute 是相对于第一个父级元素 位置移动*/
+    /* inherit 是继承父元素属性值 */
+    /* position: absolute;
+    left: 100px; */
+
+    /* relative 是相对于原来的位置  进行移动*/
+    /* position: relative;
+    top: 200px; */
+}
+ .inner:hover{
+    background-color: blue;
+}
+
+.inner-left{
+    background-color: rgba(255, 192, 203, 0.297);
+    width: 300px;
+    height: 300px;
+    border-radius: 30px;
+    position: fixed;
+    left: 100px;
+    bottom: 10px;
+
+
+}
+.inner-left:hover{
+    background-color: pink;
+}
+.inner-right{
+    background-color: rgba(0, 0, 0, 0.29);
+    width: 300px;
+    height: 300px;
+    border-radius: 30px;
+    position: fixed;
+    right: 100px;
+    bottom: 10px;
+}
+.inner-right:hover{
+    background-color: black;
+}
+
+
