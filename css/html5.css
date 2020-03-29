@@ -1,0 +1,59 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    border: 2px red solid;
+    width: auto;
+    height: 100px;
+}
+
+nav {
+    border: 2px  skyblue solid;
+    margin-top: 35px;
+    margin-bottom: 0;
+    width: auto;
+    height: 40px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+nav ul li {
+    position: relative;
+    bottom: 10px;
+    list-style: none;
+    color: skyblue;
+
+}
+
+nav ul li:hover {
+   transform: scale(1.2,1.2);
+   color: yellowgreen;
+}
+
+main {
+    border: 2px blue solid;
+    height: 500px;
+    display: flex;
+    
+}
+
+main article {
+    border: 2px pink solid;
+    width: 70%;
+}
+
+main aside {
+    border: 2px green solid;
+    width: 30%;
+}
+
+footer {
+    border: 2px black solid ;
+    height: 200px;
+}
