@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="/image/favicon.ico">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 21px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            word-spacing: 3px;
+            list-style: none;
+            text-decoration: none;
+
+        }
+
+        body {
+            background-color: none;
+            transition: .9s;
+            
+        }
+
+        .body-dark {
+            /* background-color: #34495e67; */
+            background-color: rgb(30, 30, 30);
+        }
+
+        .font-white {
+            color: whitesmoke;
+        }
+
+        .font-black {
+            color: black;
+        }
+
+        .container {
+            position: fixed;
+            top: 30px;
+            right: 40px;
+            width: 40px;
+            height: 20px;
+            border: 2px black solid;
+            border-radius: 30px;
+            transition: .4s;
+            background-color: rgba(49, 36, 36, 0.144);
+            overflow: hidden;
+        }
+
+        .container-bgcolor {
+            background-color: #2ecc71;
+        }
+
+        .container-click-boom {
+            box-shadow: #2ecc71 0px 0px 40px;
+        }
+
+        .circle {
+            position: absolute;
+            top: .1px;
+            box-sizing: content-box;
+            min-height: 100%;
+            width: 20px;
+            border: none;
+            border-radius: 50%;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .circle-right {
+            right: 0;
+        }
+
+        .circle-left {
+            left: 0;
+        }
+
+
+        iframe {
+            position: absolute;
+            width: 70%;
+            height: 90%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 0;
+        }
+
+        ::selection {
+            background-color: rgba(61, 207, 176, 0.514);
+        }
+
+        ::-webkit-scrollbar {
+            width: 1rem;
+            background-color: rgba(61, 207, 175, 0.151);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background: linear-gradient(100deg, rgba(61, 207, 176, 0.514), rgba(0, 0, 255, 0.384))
+        }
+
+        a.fa {
+            position: fixed;
+            top: 30px;
+            left: 4px;
+            cursor: pointer;
+        }
+
+        aside {
+            width: 90px;
+            height: 400px;
+            /* background-color:  rgba(0, 0, 0, 0.938); */
+            background-color: black;
+            position: fixed;
+            top: 30px;
+            left: 4px;
+            margin-left: -94px;
+            text-align: center;
+
+        }
+
+        .slider {
+            position: absolute;
+            width: 90px;
+            height: 30px;
+            background-color: whitesmoke;
+            /* border: 1px red solid; */
+            /* 50+78=128
+                128+78=206
+                206+78=284
+                78...
+            */
+            top: 50px;
+            z-index: -11;
+            opacity: 0;
+            transition: .3s;
+        }
+
+
+
+        ul a.active:nth-child(1)~.slider {
+            top: 50px;
+            opacity: 1;
+        }
+
+        ul a.active:nth-child(2)~.slider {
+            top: 128px;
+            opacity: 1;
+
+        }
+
+        ul a.active:nth-child(3)~.slider {
+            top: 206px;
+            opacity: 1;
+
+        }
+
+        ul a.active:nth-child(4)~.slider {
+            top: 284px;
+            opacity: 1;
+
+        }
+
+
+
+        ul a {
+            display: block;
+            width: 90px;
+            margin-top: 50px;
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+
+<body>
+    <aside>
+        <ul>
+            <a href="#" class="active font-black">Home</a>
+            <a href="#">Search</a>
+            <a href="#">Photos</a>
+            <a href="#">More</a>
+            <div class="slider"></div>
+        </ul>
+    </aside>
+    <a class='fa fa-bars fa-2x'></a>
+
+    <iframe frameborder="0"></iframe>
+
+    <div class="container">
+        <div class="circle circle-left" id="circle"></div>
+    </div>
+
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(function () {
+            $("iframe").attr("src", "./interview-search.html")
+
+            // 护眼变色功能
+            //clickNum =1  向右滑动,深夜模式
+            // clickNum = 0 左边滑动,白天模式
+            var clickNumDark = 1;
+            $(".container").click(function () {
+                if (clickNumDark) {
+                    $(".circle").removeClass("circle-left");
+                    $(".circle").addClass("circle-right");
+                    $("body").addClass("body-dark");
+                    $("body").addClass("font-white");
+                    $(".container").addClass("container-click-boom container-bgcolor");
+
+
+                    clickNumDark = 0;
+                }
+                else {
+                    $(".circle").removeClass("circle-right");
+                    $(".circle").addClass("circle-left");
+                    $("body").removeClass("body-dark");
+                    $("body").removeClass("font-white");
+                    $(".container").removeClass("container-click-boom container-bgcolor");
+                    clickNumDark = 1;
+                }
+            })
+
+
+            //左边按钮功能
+            var clickNumSide = 1;
+            $(".fa-bars").click(function () {
+                if (clickNumSide) {
+                    $(this).attr("class", "fa fa-chevron-left fa-2x");
+                    $(this).animate({
+                        left: '100px'
+                    });
+                    $("aside").animate({
+                        "margin-left": "4px"
+                    });
+                    clickNumSide = 0;
+                }
+                else {
+                    $(this).attr("class", "fa fa-bars fa-2x");
+                    $(this).animate({
+                        left: '4px'
+                    });
+                    $("aside").animate({
+                        "margin-left": "-94px"
+                    });
+                    clickNumSide = 1;
+                }
+            })
+
+
+            // 导航栏功能
+            $("ul a").click(function () {
+                $("ul a").removeAttr("class", "active");
+                $(this).attr("class", "active");
+                $("ul a").removeClass("font-black");
+                $(this).addClass("font-black");
+
+            })
+        })
+    </script>
+</body>
+
+</html>
