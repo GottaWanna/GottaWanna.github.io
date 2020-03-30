@@ -214,9 +214,11 @@
                     $(".circle").addClass("circle-right");
                     $("body").addClass("body-dark");
                     $("body").addClass("font-white");
-
-                    // 操作 iframe 里面的元素
-                    document.getElementById("iframe").contentWindow.document.getElementById("p").style.color = "white";
+                    if($("a.active").text() == "Home"){
+                        // 操作 iframe 里面的元素
+                        document.getElementById("iframe").contentWindow.document.getElementById("p").style.color = "white";
+                    }
+                    
                     $(".container").addClass("container-click-boom container-bgcolor");
                     clickNumDark = 0;
                 }
