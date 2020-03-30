@@ -227,8 +227,9 @@
                     $(".circle").addClass("circle-left");
                     $("body").removeClass("body-dark");
                     $("body").removeClass("font-white");
+                    if($("a.active").text() == "Home"){
                     document.getElementById("iframe").contentWindow.document.getElementById("p").style.color = "black";
-
+                    }
                     $(".container").removeClass("container-click-boom container-bgcolor");
                     clickNumDark = 1;
                 }
