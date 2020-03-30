@@ -7,6 +7,7 @@
     <title>Document</title>
     <link href="https://cdn.bootcss.com/font-awesome/5.13.0/css/all.css" rel="stylesheet">
     <link rel="icon" href="/image/favicon.ico">
+
     <style>
         * {
             margin: 0;
@@ -26,7 +27,7 @@
         body {
             background-color: none;
             transition: .9s;
-            
+
         }
 
         .body-dark {
@@ -92,6 +93,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             padding: 0;
+            color: blue;
         }
 
         ::selection {
@@ -145,8 +147,6 @@
             transition: .3s;
         }
 
-
-
         ul a.active:nth-child(1)~.slider {
             top: 50px;
             opacity: 1;
@@ -170,8 +170,6 @@
 
         }
 
-
-
         ul a {
             display: block;
             width: 90px;
@@ -186,16 +184,17 @@
 <body>
     <aside>
         <ul>
-            <a href="#" class="active font-black">Home</a>
-            <a href="#">Search</a>
-            <a href="#">Photos</a>
-            <a href="#">More</a>
+            <a href="#" class="active font-black" id="home">Home</a>
+            <a href="#" id="search">Search</a>
+            <a href="#" id="photos">Photos</a>
+            <a href="#" id="more">More</a>
             <div class="slider"></div>
         </ul>
     </aside>
     <a class='fa fa-bars fa-2x'></a>
 
-    <iframe frameborder="0"></iframe>
+    <iframe src="./home.html" frameborder="0" id="iframe"></iframe>
+
 
     <div class="container">
         <div class="circle circle-left" id="circle"></div>
@@ -204,7 +203,6 @@
     <script src="/js/jquery-3.4.1.min.js"></script>
     <script>
         $(function () {
-            $("iframe").attr("src", "./interview-search.html")
 
             // 护眼变色功能
             //clickNum =1  向右滑动,深夜模式
@@ -216,9 +214,10 @@
                     $(".circle").addClass("circle-right");
                     $("body").addClass("body-dark");
                     $("body").addClass("font-white");
+
+                    // 操作 iframe 里面的元素
+                    document.getElementById("iframe").contentWindow.document.getElementById("p").style.color = "white";
                     $(".container").addClass("container-click-boom container-bgcolor");
-
-
                     clickNumDark = 0;
                 }
                 else {
@@ -226,6 +225,8 @@
                     $(".circle").addClass("circle-left");
                     $("body").removeClass("body-dark");
                     $("body").removeClass("font-white");
+                    document.getElementById("iframe").contentWindow.document.getElementById("p").style.color = "black";
+
                     $(".container").removeClass("container-click-boom container-bgcolor");
                     clickNumDark = 1;
                 }
@@ -258,14 +259,42 @@
             })
 
 
-            // 导航栏功能
+            // 左边导航栏功能
             $("ul a").click(function () {
                 $("ul a").removeAttr("class", "active");
                 $(this).attr("class", "active");
                 $("ul a").removeClass("font-black");
                 $(this).addClass("font-black");
 
-            })
+            });
+
+            // 导航栏4个按钮
+            $("a#home").click(() => {
+                $("iframe").attr("src", "./home.html");
+
+                //加载完成之后
+                // 高级版本的 jquer 废除了 load 事件,应该写成  on("load")
+                $("iframe").on("load",()=>{
+
+                    // 判断当前是否是护眼模式
+                    if ($(".circle").attr("class") == "circle circle-right" ) {
+                        document.getElementById("iframe").contentWindow.document.getElementById("p").style.color = "white";
+                    }
+                    else {
+                        document.getElementById("iframe").contentWindow.document.getElementById("p").style.color = "black";
+                    }
+                })
+            });
+
+            $("a#search").click(() => {
+                $("iframe").attr("src", "./search.html");
+            });
+            $("a#photos").click(() => {
+                $("iframe").attr("src", "./photos.html");
+            });
+            $("a#more").click(() => {
+                $("iframe").attr("src", "./more.html");
+            });
         })
     </script>
 </body>
