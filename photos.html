@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+
+            /* 父元素已经定位的情况下
+            子元素相对于父元素进行absolute定位 */
+            position: relative;
+            width: 750px;
+            height: 500px;
+            box-sizing: border-box;
+            background-image: url(/image/1.png);
+            opacity: 1;
+            transition: .2s;
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+            box-shadow: rgba(0, 128, 128, 0.952) 0px 0px 30px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .footer {
+            box-sizing: border-box;
+            width: 50%;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+
+
+        }
+
+        a:link {
+            display: block;
+            width: 45px;
+            height: 15px;
+            background-color: rgba(255, 236, 236, 0.26);
+            border: white 1px solid;
+            border-radius: 3px;
+        }
+
+        a:hover {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="container">
+        <div class="footer">
+            <a class="a1" href="#"></a>
+            <a class="a2" href="#"></a>
+            <a class="a3" href="#"></a>
+            <a class="a4" href="#"></a>
+
+        </div>
+    </div>
+
+
+    <script>
+        $(function () {
+
+            var index = 1;
+            var imgArr = ['url(image/1.png)', 'url(image/2.png)', 'url(image/3.png)', 'url(image/4.png)'];
+
+
+            var timer = setInterval(() => {
+                    if (index <= 3) {
+                        $(".container").css({
+                            "background-image" :  imgArr[index]
+                        });
+                       index++;
+                    }
+                    else{
+                        index = 0;  
+                        $(".container").css(
+                            "background-image", imgArr[index]
+                        );
+                        index++;
+                    }
+
+            }, 2000)
+
+
+            $(".a1").mouseover(function () {
+                $(".container").css({
+                    "background-image": "url(/image/1.png)",
+
+                });
+                $("a").css("background-color", "rgba(255, 236, 236, 0.26)");
+                $(this).css("background-color", "white");
+
+            })
+            $(".a1").mouseout(function(){
+                
+            })
+
+            $(".a2").mouseover(function () {
+                $(".container").css("background-image", "url(/image/2.png)")
+                $("a").css("background-color", "rgba(255, 236, 236, 0.26)");
+                $(this).css("background-color", "white");
+
+            })
+
+            $(".a3").mouseover(function () {
+                $(".container").css("background-image", "url(/image/3.png)");
+                $("a").css("background-color", "rgba(255, 236, 236, 0.26)");
+                $(this).css("background-color", "white");
+
+            })
+
+            $(".a4").mouseover(function () {
+                $(".container").css("background-image", "url(/image/4.png)");
+                $("a").css("background-color", "rgba(255, 236, 236, 0.26)");
+                $(this).css("background-color", "white");
+
+            })
+
+
+            
+            
+
+        })
+
+
+
+    </script>
+</body>
+
+</html>
